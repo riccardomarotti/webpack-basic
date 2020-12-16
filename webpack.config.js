@@ -15,6 +15,13 @@ const commonConfig = merge([
 ]);
 
 const productionConfig = merge([
+  {
+    output: {
+      chunkFilename: "[name].[contenthash].js",
+      filename: "[name].[contenthash].js",
+      assetModuleFilename: "[name].[contenthash][ext][query]",
+    },
+  },
   parts.minifyJavaScript(),
   parts.minifyCSS({ options:
       {
