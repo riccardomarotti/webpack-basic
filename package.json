@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "wp --mode production",
-    "start": "wp --mode development"
+    "start": "wp --mode development",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
