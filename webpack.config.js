@@ -16,7 +16,16 @@ const commonConfig = merge([
 
 const productionConfig = merge([
   parts.minifyJavaScript(),
-  parts.minifyCSS({ options: { preset: ["default"] } }),
+  parts.minifyCSS({ options:
+      {
+        preset: [
+          "default",
+          {
+            discardComments: { removeAll: true },
+          }
+        ],
+      },
+  }),
   parts.eliminateUnusedCSS(),
   parts.generateSourceMaps({ type: "source-map" }),
   parts.attachRevision(),
