@@ -65,6 +65,13 @@ exports.eliminateUnusedCSS = () => ({
   ],
 });
 
+exports.autoprefix = () => ({
+  loader: "postcss-loader",
+  options: {
+    postcssOptions: { plugins: [require("autoprefixer")()] },
+  },
+});
+
 exports.page = ({ title }) => ({
   plugins: [new MiniHtmlWebpackPlugin({ context: { title } })],
 });
