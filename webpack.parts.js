@@ -53,7 +53,7 @@ const ALL_FILES = glob.sync(path.join(__dirname, "src/*.js"));
 exports.eliminateUnusedCSS = () => ({
   plugins: [
     new PurgeCSSPlugin({
-      paths: ALL_FILES, // Consider extracting as a parameter
+      paths: ALL_FILES,
       extractors: [
         {
           extractor: (content) =>
@@ -84,6 +84,15 @@ exports.loadImages = ({ limit } = {}) => ({
         type: "asset",
         parser: { dataUrlCondition: { maxSize: limit } },
       },
+    ],
+  },
+});
+
+const APP_SOURCE = path.join(__dirname, "src");
+exports.loadJavaScript = () => ({
+  module: {
+    rules: [
+      { test: /\.js$/, include: APP_SOURCE, use: "babel-loader" },
     ],
   },
 });
