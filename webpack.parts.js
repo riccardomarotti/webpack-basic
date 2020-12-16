@@ -114,6 +114,15 @@ exports.loadJavaScript = () => ({
   },
 });
 
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+exports.minifyCSS = ({ options }) => ({
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin({ minimizerOptions: options }),
+    ],
+  },
+});
+
 exports.generateSourceMaps = ({ type }) => ({ devtool: type });
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
