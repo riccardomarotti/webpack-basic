@@ -96,3 +96,5 @@ exports.loadJavaScript = () => ({
     ],
   },
 });
+
+exports.generateSourceMaps = ({ type }) => ({ devtool: type });

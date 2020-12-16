@@ -12,7 +12,10 @@ const commonConfig = merge([
   parts.loadJavaScript(),
 ]);
 
-const productionConfig = merge([parts.eliminateUnusedCSS()]);
+const productionConfig = merge([
+  parts.eliminateUnusedCSS(),
+  parts.generateSourceMaps({ type: "source-map" }),
+]);
 
 const developmentConfig = merge([
   { entry: ["webpack-plugin-serve/client"] },
