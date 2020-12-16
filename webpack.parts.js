@@ -98,3 +98,6 @@ exports.loadJavaScript = () => ({
 });
 
 exports.generateSourceMaps = ({ type }) => ({ devtool: type });
+
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+exports.clean = () => ({ plugins: [new CleanWebpackPlugin()] });
