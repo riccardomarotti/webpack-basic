@@ -75,3 +75,15 @@ exports.autoprefix = () => ({
 exports.page = ({ title }) => ({
   plugins: [new MiniHtmlWebpackPlugin({ context: { title } })],
 });
+
+exports.loadImages = ({ limit } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg)$/,
+        type: "asset",
+        parser: { dataUrlCondition: { maxSize: limit } },
+      },
+    ],
+  },
+});

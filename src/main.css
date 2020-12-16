@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    background: cornsilk;
+    background: cornsilk url("./logo.png") no-repeat center;
 }
