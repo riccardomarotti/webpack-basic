@@ -2,9 +2,9 @@ const { WebpackPluginServe } = require("webpack-plugin-serve");
 const {
   MiniHtmlWebpackPlugin,
 } = require("mini-html-webpack-plugin");
+
 const webpack = require("webpack");
 const GitRevisionPlugin = require("git-revision-webpack-plugin");
-
 exports.attachRevision = () => ({
   plugins: [
     new webpack.BannerPlugin({
@@ -13,6 +13,13 @@ exports.attachRevision = () => ({
   ],
 });
 
+const TerserPlugin = require("terser-webpack-plugin");
+exports.minifyJavaScript = () => ({
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  },
+});
 
 exports.devServer = () => ({
   watch: true,
